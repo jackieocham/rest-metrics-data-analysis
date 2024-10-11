@@ -1,4 +1,4 @@
--- Begin by outputting the entire data set for univariate non-graphical analysis. --
+-- Begin by outputting the prepped data for univariate non-graphical analysis. --
 SELECT *
 FROM personal_data.sleep_export;
 # Outputs all fields and records in the table
