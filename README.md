@@ -1,7 +1,11 @@
-# sleep-data-analysis
-EDA on 6 years of self-collected sleep data performed using MySQL, Tableau
+# Sleep Data Analysis
+### EDA on 6 years of self-collected sleep data performed using MySQL, Tableau
+
 Goals
+- import and prepare data from sleep tracking app for analysis
+    - see file `Prepped_Sleep_Data.sql`
 - use SQL querying to answer simple questions about my sleep habits over the years
+    - see file `Univariate_Non-graphical_EDA`
 - use SQL querying to cross-reference other data sets that include additional health info
 - use Tableau to create visulizations of interesting patterns found
 - directly show how my medications and lifestyle treatments have improved my productivity over the years

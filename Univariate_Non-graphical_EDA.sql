@@ -1,11 +1,11 @@
 -- Begin by outputting the entire data set for univariate non-graphical analysis. --
 SELECT *
-FROM sleep_export;
-# Outputs all fields and records in the data set
+FROM personal_data.sleep_export;
+# Outputs all fields and records in the table
 
 -- When did I start tracking my sleep? --
 SELECT *
-FROM sleep_export
+FROM personal_data.sleep_export
 ORDER BY Id ASC LIMIT 1;
 # Answer: 2018-10-30
 
