@@ -2,8 +2,7 @@
 ### EDA on 6 years of self-collected sleep data performed using MySQL
 
 #### Steps
-- [x] export data from sleep tracking app
-- [x] import data into MySQL and prep for analysis 
+- [x] export data from sleep tracking app, import data into MySQL and prep for analysis 
     - see file `Prepped_Sleep_Data.sql`
 
 - [ ] use SQL querying to answer simple questions about my sleep habits over the years
