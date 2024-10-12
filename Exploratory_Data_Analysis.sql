@@ -32,12 +32,17 @@ FROM prepped_sleep_data;
 # Outputs "AVG(Hours)" with answer 7.49
 
 -- What was my adherence to using this sleep tracker? How many nights did I skip tracking my sleep? --
-SELECT *
-FROM prepped_sleep_data;
-#
+SELECT DISTINCT DATE(distNextDay.Wake_Time) + INTERVAL 1 DAY AS missing_date FROM prepped_sleep_data distNextDay 
+LEFT OUTER JOIN (SELECT DISTINCT Wake_Time FROM prepped_sleep_data) distDay 
+ON DATE(distNextDay.Wake_Time) = DATE(distDay.Wake_Time) - INTERVAL 1 DAY WHERE distNextDay.Wake_Time BETWEEN (SELECT MIN(distNextDay.Wake_Time)) AND (SELECT MAX(distNextDay.Wake_Time)) AND distDay.Wake_Time IS NULL;
+
 
 -- How many nights did I manually input my sleeping hours? --
--- How many nights did I use Sonar? -- (Use SELECT DISTINT?)
+-- How many nights did I use Sonar vs watch vs manual? Make a pie chart. --
+-- How many nights did I get above 30% deep sleep? --
 
 -- Multivariate Non-Graphical Analysis -- 
 -- On days when I woke up before 7:00 AM, what time did I go to bed? --
+-- Chart noise vs deep sleep to observe correlation. --
+-- Determine and chart dates significant events such as beginning new meds, making major lifestyle adjustments, used new technology (garmin), etc. --
+

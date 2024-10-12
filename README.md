@@ -12,10 +12,10 @@
 
 - [ ] use SQL querying to answer questions that include additional health info
 
-- [ ] use Tableau to create visulizations of interesting patterns found
+- [ ] use Tableau to create visualizations of interesting patterns found
 
 - [ ] directly show how my medications and lifestyle treatments have improved my productivity over the years
     - demonstrate decreased need for naps during the day over time
-    - show increases/decreases of work/shchool hours over time
+    - show increases/decreases of work/school hours over time
     - show interesting correlations such as between positive moods, sleep quality and productivity
     
