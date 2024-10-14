@@ -1,0 +1,4 @@
+-- Multivariate Non-Graphical Analysis -- 
+-- On days when I woke up before 7:00 AM, what time did I go to bed? --
+-- Chart noise vs deep sleep to observe correlation. --
+-- Determine and chart dates with significant events such as beginning new medications, major lifestyle adjustments, new technology (garmin), etc. --

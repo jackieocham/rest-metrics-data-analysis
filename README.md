@@ -5,17 +5,12 @@
 - [x] export data from sleep tracking app, import data into MySQL and prep for analysis 
     - see file `Prepped_Sleep_Data.sql`
 
-- [ ] use SQL querying to answer questions about my sleep habits over the years
-    - see file `Exploratory_Data_Analysis.sql`
-
 - [ ] export data from other health tracking app, import data into MySQL and prep for analysis
 
-- [ ] use SQL querying to answer questions that include additional health info
+- [ ] use SQL querying to answer questions about my sleep habits over the years including additional health info
+    - see file `univariate_exploratory_data_analysis.sql`
+    - see file `multivariate_exploratory_data_analysis.sql`
 
-- [ ] use Tableau to create visualizations of interesting patterns found
+- [ ] use Tableau to create an informational dashboard with clear visualizations of interesting patterns found
 
-- [ ] directly show how my medications and lifestyle treatments have improved my productivity over the years
-    - demonstrate decreased need for naps during the day over time
-    - show increases/decreases of work/school hours over time
-    - show interesting correlations such as between positive moods, sleep quality and productivity
-    
+- [ ] write data report explaining insightful findings on my management of narcolepsy
