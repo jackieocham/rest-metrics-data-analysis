@@ -1,4 +1,5 @@
-# I can do stuff that gets ignored!
+# Format: /folderName/fileName.fileExt
 hidden_sleep_export_prepped.csv
 prepped_sleep_data.csv
 original_sleep_export.csv
+prepped_health_data.csv
