@@ -3,7 +3,7 @@
 
 #### Steps
 - [x] export data from sleep tracking app, import data into MySQL and prep for analysis 
-    - see file `Prepped_Sleep_Data.sql`
+    - see file `prepped_sleep_data.sql`
 
 - [ ] export data from other health tracking app, import data into MySQL and prep for analysis
 
