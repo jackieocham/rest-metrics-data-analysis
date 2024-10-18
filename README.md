@@ -1,17 +1,16 @@
-# Sleep Data Analysis
-### EDA on 6 years of self-collected sleep data performed using MySQL
+# Narcoleptic Sleep Data Analysis
+### Data analysis on 6 years of self-collected sleep tracking data
 
-#### Steps
+#### GOALS
 - [x] export data from sleep tracking app, import data into MySQL and prep for analysis 
     - see file `prepped_sleep_data.sql`
 
-- [x] export data from other health tracking app, import data into MySQL and prep for analysis
+- [x] export data from health tracking app, import data into MySQL and prep for analysis
     - see file `prepped_health_data.sql`
 
-- [ ] use SQL querying to answer questions about my sleep habits over the years including additional health info
-    - see file `univariate_exploratory_data_analysis.sql`
-    - see file `multivariate_exploratory_data_analysis.sql`
+- [x] use SQL querying to answer initial questions and determine data quality
+    - see file `initial_data_analysis.sql`
 
-- [ ] use Tableau to create an informational dashboard with clear visualizations of interesting patterns found
+- [ ] use Tableau to visualize impactful relationships with different variables and highlight significant inflection points and patterns found
 
-- [ ] write data report explaining insightful findings on my management of narcolepsy
+- [ ] write a summary report explaining insightful findings

@@ -1,8 +1,8 @@
 /* 1.) Import .csv file through the table data import wizard in desired database. Drop table if exist. 
 The formatting of this .csv file is incorrect so all fields imported as text. */
 SELECT *
-FROM personal_data.original_sleep_export;
-# Outputs everything from table 'original_sleep_export' in DB 'personal_data' to view in result grid
+FROM original_sleep_export;
+# Outputs everything from table 'original_sleep_export' to view in result grid
 
 # 2.) Clean, scrub and prepare data for analysis.
 ALTER TABLE original_sleep_export
