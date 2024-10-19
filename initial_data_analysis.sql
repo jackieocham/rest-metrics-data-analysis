@@ -1,4 +1,10 @@
--- Univariate Non-Graphical Analysis --
+/* Narcoleptic Sleep Data Analysis by Jacqueline Chambers
+Ongoing intuitive analyses since diagnosis in October 2016; 
+Professional analyses started September 2024 for data portfolio. ^_^ 
+Description: Sleep data was exported from the sleep tracking app, "Sleep By Android," and imported to a local MySQL DB
+for cleaning and prep (see prepped_sleep_data.sql). Health data was exported from the app, "Ovuview," and imported to
+Excel for cleaning then to the same local MySQL DB for prep (see prepped_health_data.sql). Initial analysis begins below. */
+
 -- Output prepped data. Answer general questions. --
 SELECT *
 FROM prepped_sleep_data;
@@ -29,29 +35,45 @@ ORDER BY Entry_Date DESC LIMIT 1;
 # Answer: health tracking was exported 2022-02-22
 
 
--- How many sleep tracking entries in total? --
+-- How many tracking entries in total? --
 SELECT COUNT(Id)
 FROM prepped_sleep_data;
 # Answer: 2244
 
--- What was the adherence to using this these trackers? How many days missed tracking? --
-# According to google, the date range Oct 30, 2018 - Sept 14, 2024 includes 2,146 days */
+SELECT COUNT(Entry_Date)
+FROM prepped_health_data;
+# Answer: 2063
 
+-- What was the adherence to using this these trackers? How many days missed tracking? --
+# The date range Oct 30, 2018 - Sept 14, 2024 includes 2,146 days
 SELECT 2146 - COUNT(DISTINCT DATE(Wake_Time))
 FROM prepped_sleep_data;
 # Answer: 24 missing days
 SELECT COUNT(DISTINCT DATE(Wake_Time))/2146
 FROM prepped_sleep_data;
-# Answer: 98.89% adherence to tracking sleep
+# Answer: 98.89% adherence to using sleep tracker
+
+# The date range Apr 02, 2014 - Feb 22, 2022 includes 2,883 days
+SELECT 2883 - COUNT(DISTINCT(Entry_Date))
+FROM prepped_health_data;
+# Answer: 820 missing days
+SELECT COUNT(DISTINCT(Entry_Date))/2883
+FROM prepped_health_data;
+# Answer: 71.56% adherence to using health tracker
 
 -- Which dates are missing? --
 SELECT DISTINCT DATE(w1.Wake_Time) + INTERVAL 1 DAY AS missing_date FROM prepped_sleep_data w1 
 LEFT OUTER JOIN (SELECT DISTINCT Wake_Time FROM prepped_sleep_data) w2 
 ON DATE(w1.Wake_Time) = DATE(w2.Wake_Time) - INTERVAL 1 DAY 
 WHERE w1.Wake_Time BETWEEN (SELECT MIN(w1.Wake_Time)) AND (SELECT MAX(w1.Wake_Time)) AND w2.Wake_Time IS NULL;
-# This is not correct. Will return after learning more.
+# I believe this is incorrect. Will research and return.
 
--- VARIABLE FOCUS: Hours
+SELECT DISTINCT DATE(w1.Entry_Date) + INTERVAL 1 DAY AS missing_date FROM prepped_health_data w1 
+LEFT OUTER JOIN (SELECT DISTINCT Entry_Date FROM prepped_health_data) w2 
+ON DATE(w1.Entry_Date) = DATE(w2.Entry_Date) - INTERVAL 1 DAY 
+WHERE w1.Entry_Date BETWEEN (SELECT MIN(w1.Entry_Date)) AND (SELECT MAX(w1.Entry_Date)) AND w2.Entry_Date IS NULL;
+
+-- UNIVARIATE FOCUS: Hours
 
 -- Given a good night's rest requires at least 7.5 hrs of sleep, how many entries could be good night's rest? --
 SELECT Hours
