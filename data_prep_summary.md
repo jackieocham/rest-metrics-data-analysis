@@ -1,9 +1,9 @@
-# SUMMARY
+# DATA PREP SUMMARY
 
 1. #### Exported data from the relevant apps and saved to my PC.
     * Health data was exported in two batches based on two separate accounts with different date ranges. One export is referred to as "health_data_1" and the other "health_data_2" for this summary.
 2. #### Cleaned and manipulated data using Microsoft Excel.
-    * Sleep data could not be opened in Excel due to its size. It was imported into MySQL to clean, manipulate and prep. 
+    * Sleep data could not be reasonably manipulated in Excel due to number of fields and organization of data. It was imported into MySQL to clean, manipulate and prep. 
         - See `prepped_sleep_data.sql` for detailed process.
     * Health data files were opened side-by-side in separate Excel windows for initial cleaning to merge.
         - Deleted columns with private information or that were irrelevant.

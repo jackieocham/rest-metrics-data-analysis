@@ -1,5 +1,5 @@
 /* Goal: Import additional health data into database with sleep data.
-Prep data by changing the name of the "Date" field, reformating the date syntax, and changing the data type to datetime. */
+Prep data - change the name of the "Date" field, reformat the date syntax, change the data type to datetime. */
 
 SELECT *
 FROM prepped_health_data;

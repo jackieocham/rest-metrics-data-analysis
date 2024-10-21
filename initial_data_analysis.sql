@@ -1,9 +1,11 @@
 /* Narcoleptic Sleep Data Analysis by Jacqueline Chambers
-Ongoing intuitive analyses since diagnosis in October 2016; 
-Professional analyses started September 2024 for data portfolio. ^_^ 
-Description: Sleep data was exported from the sleep tracking app, "Sleep By Android," and imported to a local MySQL DB
-for cleaning and prep (see prepped_sleep_data.sql). Health data was exported from the app, "Ovuview," and imported to
-Excel for cleaning then to the same local MySQL DB for prep (see prepped_health_data.sql). Initial analysis begins below. */
+    Ongoing intuitive analyses since before diagnosis in October 2016; Ongoing data collection since October 2018. 
+    Professional analyses started September 2024 for data portfolio. ^_^ 
+
+    Description: Sleep data was exported from the sleep tracking app, "Sleep By Android," and imported to a local MySQL DB
+    for cleaning and prep (see prepped_sleep_data.sql). Health data was exported from the app, "Ovuview," and imported to
+    Excel for cleaning and prep (see data_prep_summary.md), then to the same DB for final prep (see prepped_health_data.sql). 
+    Initial analysis begins below. */
 
 -- Output prepped data. Answer general questions. --
 SELECT *
