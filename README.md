@@ -16,8 +16,8 @@ Purpose: to demonstrate basic analysis skills and usage of technical tools requi
 - [x] export prepared data tables
 - [x] create visualizations to represent the data
 - [x] document processes, analyses and summaries
-- [] create a final dashboard
-- [] write a final report
+- [ ] create a final dashboard
+- [ ] write a final report
 
 ### Thanks
 
