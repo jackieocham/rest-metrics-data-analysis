@@ -1,5 +1,8 @@
-/* Goal: Import additional health data into database with sleep data.
-Prep data - change the name of the "Date" field, reformat the date syntax, change the data type to datetime. */
+/* 1. Imported .csv file through the table data import wizard to newly created database. 
+      - Created new table named 'prepped_sleep_data'. Dropped table if exists. 
+      - Selected all source columns.
+      - Selected TEXT data type for all source columns due to formatting.
+      - Took about 5 seconds to import 807 records. */ 
 
 SELECT *
 FROM prepped_health_data;

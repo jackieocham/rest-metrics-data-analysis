@@ -1,16 +1,24 @@
 # Narcoleptic Sleep Data Analysis
-### Data analysis on 6 years of self-collected sleep tracking data
 
-#### GOALS
-- [x] export data from sleep tracking app, import data into MySQL and prep for analysis 
-    - see file `prepped_sleep_data.sql`
+## Portfolio Project No. 1
 
-- [x] export data from health tracking app, import data into MySQL and prep for analysis
-    - see file `prepped_health_data.sql`
+Purpose: to demonstrate basic analysis skills and usage of technical tools required for an entry-level/junior role as a data analyst
 
-- [x] use SQL querying to answer initial questions and determine data quality
-    - see file `initial_data_analysis.sql`
+### Project Objectives
 
-- [ ] use Tableau to visualize impactful relationships with different variables and highlight significant inflection points and patterns found
+- [x] clean, scrub, manipulate and prepare all exported data
+- [x] determine which fields to drop
+- [x] take care of duplicate and empty records
+- [x] change field names for clarity
+- [x] reformat data to fit expected data type
+- [x] change data types to be more accurate to fields
+- [x] add new field to relate data tables
+- [x] export prepared data tables
+- [x] create visualizations to represent the data
+- [x] document processes, analyses and summaries
+- [] create a final dashboard
+- [] write a final report
 
-- [ ] write a summary report explaining insightful findings
+### Thanks
+
+Please reach out if you have questions. I am open to feedback and suggestions!
