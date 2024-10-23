@@ -6,7 +6,7 @@
 2. Cleaned, manipulated and prepared sleep data using MySQL.
     * Sleep data could not be reasonably manipulated in Excel due to number of fields and organization of data.
     * See `prepped_sleep_data.sql` for detailed process. This code has been tested multiple times as new sleep data is exported monthly to keep my analysis up-to-date.
-      * Alternative methods mentioned in step 6 of `prepped_sleep_data.sql` are as follows:
+    * Alternative methods mentioned in step 6 of `prepped_sleep_data.sql` are as follows:
 
     ```sql
     /* 6. Reformatted 'Bed_Time', 'Wake_Time' and 'Next_Alarm' entries to match correct format for the DATETIME data type in MySQL.
@@ -78,4 +78,8 @@
       );
     ```
 
-3. Exported prepped sleep data as a .csv file to project folder.
+3. Performed initial analysis on prepped sleep data to validate data quality.
+    * See file `initial_data_sanalysis.sql` for initial non-graphical analysis.
+
+4. Exported prepped sleep data as a .csv file to project folder.
+    * Used `prepped_sleep_data.csv` for graphical analysis and visualizations.
