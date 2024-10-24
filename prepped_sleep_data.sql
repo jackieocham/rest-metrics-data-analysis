@@ -1,6 +1,6 @@
 /* 1. Imported .csv file through the table data import wizard to newly created database. 
       - Created new table named 'sleep_export'. Dropped table if exists. 
-      - Selected the source columns (out of *thousands*) according to Sleep By Android's documentation.
+      - Selected the source columns according to Sleep By Android's app documentation.
       - Selected TEXT data type for all source columns due to strangely formatted data.
       - Took about 22 seconds to import 6,282 records. */      
 
@@ -71,7 +71,7 @@ ALTER TABLE sleep_export MODIFY Deep_Sleep_Fraction DEC(65, 10);
 ALTER TABLE sleep_export MODIFY Minutes_Awake INT;
 
 /* 8. Added column 'Entry_Date' with data type DATE to relate this table to prepped_health_data.csv.
-      - This allows for relation between the two tables in Tableau.
+      - This allows for combining of data between the two tables in Tableau.
       - This allows for joins between the two tables in MySQL analysis. */
 ALTER TABLE sleep_export
 ADD Entry_Date DATE;
@@ -82,4 +82,4 @@ SET Entry_Date = CONVERT(Wake_Time, DATE);
 SELECT *
 FROM sleep_export;
 
-/* 10. Exported prepped data as .csv file using table data export wizard to project folder on local machine for graphical analysis. */
+/* 10. Exported prepped data as .csv file using table data export wizard to use for additional analysis and visualizations. */

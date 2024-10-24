@@ -1,6 +1,6 @@
 # SLEEP DATA PREP SUMMARY
 
-1. Exported sleep data from "Sleep By Android" to project folder on my PC.
+1. Exported sleep data from mobile application to project folder on my PC.
     * Referred to app documentation to figure out csv file organization, headers and header descriptions.
 
 2. Cleaned, manipulated and prepared sleep data using MySQL.
@@ -78,8 +78,7 @@
       );
     ```
 
-3. Performed initial analysis on prepped sleep data to validate data quality.
-    * See file `initial_data_sanalysis.sql` for initial non-graphical analysis.
+3. Exported `prepped_sleep_data.csv` for graphical analysis and visualizations in Tableau.
 
-4. Exported prepped sleep data as a .csv file to project folder.
-    * Used `prepped_sleep_data.csv` for graphical analysis and visualizations.
+4. Performed initial analysis in MySQL on prepped sleep data to validate data quality and answer general questions.
+    * See `initial_data_analysis.sql` for detailed process.
