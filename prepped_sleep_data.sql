@@ -78,8 +78,12 @@ ADD Entry_Date DATE;
 UPDATE sleep_export
 SET Entry_Date = CONVERT(Wake_Time, DATE);
 
-/* 9. Output everything from table 'sleep_export' to result grid for viewing pleasure of freshly cleaned and prepped data. */
-SELECT *
-FROM sleep_export;
+/* 9. Changed table name to 'prepped_sleep_data'. */
+ALTER TABLE sleep_export
+RENAME prepped_sleep_data;
 
-/* 10. Exported prepped data as .csv file using table data export wizard to use for additional analysis and visualizations. */
+/* 10. Output everything from table 'prepped_sleep_data' to result grid for viewing pleasure of freshly cleaned and prepped data. */
+SELECT *
+FROM prepped_sleep_data;
+
+/* 11. Exported table as CSV file using table data export wizard to use for visualizations. */
