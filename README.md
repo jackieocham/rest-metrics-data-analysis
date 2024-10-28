@@ -4,6 +4,8 @@
 
 Purpose: to demonstrate basic analysis skills and usage of technical tools required for an entry-level/junior role as a data analyst
 
+Visualizations: <https://public.tableau.com/app/profile/jacqueline.chambers/vizzes>
+
 ### Project Objectives
 
 - [x] clean, scrub, manipulate and prepare all exported data
@@ -16,7 +18,7 @@ Purpose: to demonstrate basic analysis skills and usage of technical tools requi
 - [x] export prepared data tables
 - [x] create visualizations to represent the data
 - [x] document processes, analyses and summaries
-- [ ] create a final dashboard
+- [x] create a final dashboard
 - [ ] write a final report
 
 ### Thanks

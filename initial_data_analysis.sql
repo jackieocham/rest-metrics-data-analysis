@@ -82,13 +82,13 @@ WHERE w1.Entry_Date BETWEEN (SELECT MIN(w1.Entry_Date)) AND (SELECT MAX(w1.Entry
     giving an option to manually add sleep duration. */
 SELECT COUNT(Notes) AS ManualRecords
 FROM prepped_sleep_data
-WHERE Notes LIKE "Manually%";
+WHERE Notes LIKE "%anual%";
 
 /* G7. How many sleep tracking entries start and end on the same day?
-- 1661 entries. These are entries when sleep tracking started after midnight or a nap was taken. */
+- 1637 entries. These are entries when sleep tracking started after midnight or a nap was taken. */
 SELECT COUNT(Id) AS BedtimeAfterMidnight
 FROM prepped_sleep_data
-WHERE DATE(Bed_Time) = DATE(Wake_Time) AND Hours_Recorded > 3.5;
+WHERE DATE(Bed_Time) = DATE(Wake_Time) AND Hours_Recorded > 4;
 
 
 -- DATA ON *HOURS* OF SLEEP -- 
@@ -113,7 +113,7 @@ WHERE Hours_Recorded >= 7.5;
 SELECT(
 (SELECT COUNT(Id) FROM prepped_sleep_data) - COUNT(Hours_Recorded)
 )/(SELECT COUNT(Id) FROM prepped_sleep_data)
-AS percentEnoughSleep
+AS PercentEnoughSleep
 FROM prepped_sleep_data
 WHERE Hours_Recorded >= 7.5;
 
@@ -126,11 +126,11 @@ WHERE Hours_Recorded <= 6;
 /* H5. What is the average number of hours slept?
 - 7.50 average hours 
     * Some of the hours slept could be from naps. Investigate further. */
-SELECT AVG(Hours_Recorded) AS avgHrsSlept
+SELECT AVG(Hours_Recorded) AS AvgHrsSlept
 FROM prepped_sleep_data;
 
 /* H6. What is the minimum number of hours slept in one entry? When did it take place?
-- 0.1 hours (or 6 minutes) on April 25, 2022. */
+- 0.1 hours (or 6 minutes) on Jan 02, 2019. */
 SELECT MIN(Hours_Recorded) AS HoursAscending, Bed_Time, Wake_Time, Notes
 FROM prepped_sleep_data
 GROUP BY Bed_Time, Wake_Time, Notes
@@ -144,7 +144,7 @@ GROUP BY Bed_Time, Wake_Time, Notes
 ORDER BY MAX(Hours_Recorded) DESC;
 
 /* H8. What is the total number of hours slept? What is the percentage of sleep for the duration?
-- 17088.75 total recorded sleep hours, 33% of time was spent sleeping. */
+- 17088.55 total recorded sleep hours, 33% of time was spent sleeping. */
 SELECT SUM(Hours_Recorded) AS TotalSleepHrs
 FROM prepped_sleep_data;
 
@@ -152,31 +152,39 @@ SELECT SUM(Hours_Recorded)/(COUNT(DISTINCT DATE(Entry_Date)) * 24)
 AS PercentageTotalSleep
 FROM prepped_sleep_data;
 
-/* H9. How many entries could be considered naps? Assume a nap is no more than 3.5 recorded hours.
+/* H9. How many entries could be considered naps? Assume a nap is no more than 4.00 recorded hours.
 How many of these naps occur during the day? Day starts at 6:00 AM and ends at 10:00 PM.
-- 105 potential naps, 50 naps during a normal 16-hr wake period */
+- 129 potential naps, 55 naps during a normal 16-hr wake period */
 
 SELECT COUNT(Bed_Time) AS Naps
 FROM prepped_sleep_data
-WHERE Hours_Recorded <= 3.5;
+WHERE Hours_Recorded <= 4;
 
 SELECT COUNT(Bed_Time) AS DayNaps
 FROM prepped_sleep_data
-WHERE Hours_Recorded <= 3.5
+WHERE Hours_Recorded <= 4
 AND HOUR(Bed_Time) BETWEEN 06 AND 22;
 
 /* H10. What do these naps look like?
-- The longest nap was exactly 3.5 hours on Aug 13, 2020. Notes say "Manually added nap time". */
+- The longest nap was exactly 4.00 hours on Nov 23, 2019. Notes say "Manually added". */
 
 SELECT Bed_Time, Wake_Time, Hours_Recorded AS NapLengthDesc, Notes 
 FROM prepped_sleep_data
-WHERE Hours_Recorded <= 3.5
+WHERE Hours_Recorded <= 4
 AND HOUR(Bed_Time) BETWEEN 06 AND 22
 ORDER BY Hours_Recorded DESC; 
 
 /* H11. Is the added BOOLEAN column 'Nap' accurate?
 - Yes. :) */
-SELECT Nap, Hours_Recorded
+SELECT Nap, Hours_Recorded, Notes
 FROM prepped_sleep_data
-WHERE Hours_Recorded <= 3.5
+WHERE Hours_Recorded <= 4
 ORDER BY Hours_Recorded DESC;
+
+/* H12. How many naps are manually added? 
+- 33 manually added naps */
+
+SELECT COUNT(Nap) AS ManualNap
+FROM prepped_sleep_data
+WHERE Nap = 1 AND Notes LIKE "%anual%"
+GROUP BY Nap;

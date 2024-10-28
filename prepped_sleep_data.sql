@@ -77,7 +77,8 @@ ADD Entry_Date DATE;
 UPDATE sleep_export
 SET Entry_Date = CONVERT(Wake_Time, DATE);
 
-/* After performing some initial analysis, came across record(s) that should be deleted due to not making sense. */
+/* After performing some initial analysis, came across record(s) in 'Hours_Recorded' that should be deleted 
+due to being too short. */
 DELETE FROM sleep_export
 WHERE Hours_Recorded < 0.1;
 
@@ -86,7 +87,7 @@ ALTER TABLE sleep_export
 ADD Nap BOOL;
 UPDATE sleep_export
 SET Nap = IF(
-Hours_Recorded <= 3.5, 1, 0);
+Hours_Recorded <= 4, 1, 0);
 
 /* 9. Changed table name to 'prepped_sleep_data'. */
 DROP TABLE IF EXISTS prepped_sleep_data;
