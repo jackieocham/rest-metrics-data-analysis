@@ -78,7 +78,5 @@
       );
     ```
 
-3. Exported `prepped_sleep_data.csv` for graphical analysis and visualizations in Tableau.
-
-4. Performed initial analysis in MySQL on prepped sleep data to validate data quality and answer general questions.
+3. Performed initial analysis in MySQL on prepped sleep data to validate data quality and answer general questions to prepare for creating visualizations.
     * See `initial_data_analysis.sql` for detailed process.

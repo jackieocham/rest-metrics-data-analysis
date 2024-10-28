@@ -71,14 +71,25 @@ ALTER TABLE sleep_export MODIFY Deep_Sleep_Fraction DEC(65, 10);
 ALTER TABLE sleep_export MODIFY Minutes_Awake INT;
 
 /* 8. Added column 'Entry_Date' with data type DATE to relate this table to prepped_health_data.csv.
-      - This allows for combining of data between the two tables in Tableau.
-      - This allows for joins between the two tables in MySQL analysis. */
+      - This allows for data merge between the two tables. */
 ALTER TABLE sleep_export
 ADD Entry_Date DATE;
 UPDATE sleep_export
 SET Entry_Date = CONVERT(Wake_Time, DATE);
 
+/* After performing some initial analysis, came across record(s) that should be deleted due to not making sense. */
+DELETE FROM sleep_export
+WHERE Hours_Recorded < 0.1;
+
+/* After performing some initial analysis, came across a new field that should be added to account for naps. */
+ALTER TABLE sleep_export
+ADD Nap BOOL;
+UPDATE sleep_export
+SET Nap = IF(
+Hours_Recorded <= 3.5, 1, 0);
+
 /* 9. Changed table name to 'prepped_sleep_data'. */
+DROP TABLE IF EXISTS prepped_sleep_data;
 ALTER TABLE sleep_export
 RENAME prepped_sleep_data;
 
