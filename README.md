@@ -20,7 +20,7 @@ Purpose: to demonstrate basic data analysis skills and usage of technical tools 
 - [x] create visualizations to represent the data
 - [x] document processes, analyses and summaries
 - [x] create a visualization dashboard
-- [x] create a visualization story
+- [ ] create a visualization story
 
 Visualizations: <https://public.tableau.com/app/profile/jacqueline.chambers/vizzes>
 
