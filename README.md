@@ -1,4 +1,4 @@
-# Narcoleptic Sleep Data Analysis
+# Sleep Data Analysis
 
 ## Portfolio Project No. 1
 
