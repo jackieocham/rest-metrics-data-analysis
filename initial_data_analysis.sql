@@ -130,7 +130,7 @@ SELECT AVG(Hours_Recorded) AS AvgHrsSlept
 FROM prepped_sleep_data;
 
 /* H6. What is the minimum number of hours slept in one entry? When did it take place?
-- 0.1 hours (or 6 minutes) on Jan 02, 2019. */
+- 0.1 hours (or 6 minutes) on Jan 02, 2019 and on Dec 08, 2018. */
 SELECT MIN(Hours_Recorded) AS HoursAscending, Bed_Time, Wake_Time, Notes
 FROM prepped_sleep_data
 GROUP BY Bed_Time, Wake_Time, Notes
@@ -141,7 +141,8 @@ ORDER BY MIN(Hours_Recorded) ASC;
 SELECT MAX(Hours_Recorded) AS HoursDescending, Bed_Time, Wake_Time, Notes
 FROM prepped_sleep_data
 GROUP BY Bed_Time, Wake_Time, Notes
-ORDER BY MAX(Hours_Recorded) DESC;
+ORDER BY MAX(Hours_Recorded) DESC
+LIMIT 1;
 
 /* H8. What is the total number of hours slept? What is the percentage of sleep for the duration?
 - 17088.55 total recorded sleep hours, 33% of time was spent sleeping. */
@@ -166,7 +167,7 @@ WHERE Hours_Recorded <= 4
 AND HOUR(Bed_Time) BETWEEN 06 AND 22;
 
 /* H10. What do these naps look like?
-- The longest nap was exactly 4.00 hours on Nov 23, 2019. Notes say "Manually added". */
+- The longest nap was 4.00 hours on Nov 23, 2019. Notes say "Manually added". */
 
 SELECT Bed_Time, Wake_Time, Hours_Recorded AS NapLengthDesc, Notes 
 FROM prepped_sleep_data
@@ -180,11 +181,3 @@ SELECT Nap, Hours_Recorded, Notes
 FROM prepped_sleep_data
 WHERE Hours_Recorded <= 4
 ORDER BY Hours_Recorded DESC;
-
-/* H12. How many naps are manually added? 
-- 33 manually added naps */
-
-SELECT COUNT(Nap) AS ManualNap
-FROM prepped_sleep_data
-WHERE Nap = 1 AND Notes LIKE "%anual%"
-GROUP BY Nap;
