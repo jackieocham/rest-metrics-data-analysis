@@ -2,7 +2,7 @@
 
 ## Portfolio Project No. 1
 
-Purpose: to demonstrate proficient data analyst skills and usage of technical tools required for an entry-level/junior role as a data analyst.
+Purpose: to demonstrate proficient data analyst skills and usage of technical tools required for a role as a data analyst.
 
 Tools: MySQL, Microsoft Excel, Tableau, GitHub
 
