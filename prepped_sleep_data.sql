@@ -1,13 +1,13 @@
 /* 1. Imported .csv file through the table data import wizard to newly created database. 
       - Created new table named 'sleep_export'. Dropped table if exists. 
-      - Selected the source columns according to Sleep By Android's app documentation.
+      - Selected the source columns according to sleep app documentation.
       - Selected TEXT data type for all source columns due to strangely formatted data.
       - Took about 22 seconds to import 6,282 records. */      
 
 /* 2. Output everything from table 'sleep_export' to view in result grid and start cleaning.
       - Read descriptions of each field in the app's documentation to determine if all were necessary. 
-      - There is a row of headers every 2-3 lines. This duplicate data should be deleted.
-      - There are many rows of empty data that need to be deleted. */
+      - There is a row of headers every 2-3 lines. This duplicate data will be deleted.
+      - There are many rows of empty data that will be deleted. */
 SELECT *
 FROM sleep_export;
 
@@ -47,7 +47,8 @@ RENAME COLUMN LenAdjust TO Minutes_Awake;
     
 /* 6. Reformatted 'Bed_Time', 'Wake_Time' and 'Next_Alarm' records to match correct format for the DATETIME data type in MySQL.
       METHOD 3: Using function STR_TO_DATE
-      - METHOD 1 and METHOD 2 are noted in 'sleep_data_prep_summary.md' to preserve one-click execution of this file. */
+      - METHOD 1: manually converted incorrect format to correct one using SUBSTRING, SUBSTRING_INDEX, CONCAT, LENGTH and IF (noted in 'sleep_data_prep_summary.md' to preserve one-click execution of this file.)
+      - METHOD 2: used CONVERT, CONCAT, SUBSTRING, and SUBSTRING_INDEX (noted in 'sleep_data_prep_summary.md'to preserve one-click execution of this file.) */
 UPDATE sleep_export
 SET Bed_Time = STR_TO_DATE(Bed_Time,'%d. %m. %Y %H:%i');
 
@@ -70,19 +71,19 @@ ALTER TABLE sleep_export MODIFY Sleep_Cycles INT;
 ALTER TABLE sleep_export MODIFY Deep_Sleep_Fraction DEC(65, 10);
 ALTER TABLE sleep_export MODIFY Minutes_Awake INT;
 
-/* 8. Added column 'Entry_Date' with data type DATE to relate this table to prepped_health_data.csv.
-      - This allows for data merge between the two tables. */
+/* 8. Added column 'Entry_Date' with data type DATE to connect this table to prepped_health_data.csv.
+      - This allows for data merge between the two tables in a program like Tableau. */
 ALTER TABLE sleep_export
 ADD Entry_Date DATE;
 UPDATE sleep_export
 SET Entry_Date = CONVERT(Wake_Time, DATE);
 
-/* After performing some initial analysis, came across record(s) in 'Hours_Recorded' that should be deleted 
+/* After performing some initial analysis in Tableau, came across record(s) in 'Hours_Recorded' that should be deleted 
 due to being too short. */
 DELETE FROM sleep_export
 WHERE Hours_Recorded < 0.1;
 
-/* After performing some initial analysis, came across a new field that should be added to account for naps. */
+/* After performing some initial analysis in Tableau, came across a new field that should be added to account for naps. */
 ALTER TABLE sleep_export
 ADD Nap BOOL;
 UPDATE sleep_export
