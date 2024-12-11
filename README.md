@@ -1,4 +1,4 @@
-# Sleep Data Analysis
+# Rest Metrics Data Analysis
 
 ## Portfolio Project No. 1
 
@@ -10,7 +10,7 @@ Tools: MySQL, Microsoft Excel, Tableau, GitHub
 
 - [x] extract, clean and prepare data
 - [x] merge and validate data from multiple sources
-- [x] perform exploratory data analysis of complex dataset
+- [x] perform exploratory data analysis of dataset
 - [x] create visualizations to represent relationships
 - [x] document processes, analyses and summaries
 
