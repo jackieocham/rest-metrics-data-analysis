@@ -1,4 +1,4 @@
-/*  Narcoleptic Sleep Data Analysis by Jacqueline Chambers
+/*  Rest Metrics Data Analysis by Jacqueline Chambers
     - Data collection started April 2014 for general health and sleep tracking.
     - Switched to a better app in October 2018 for sleep tracking.
     - Data analysis started September 2024 for project portfolio.
