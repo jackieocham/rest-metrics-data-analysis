@@ -1,10 +1,10 @@
-# Rest Metrics Data Analysis
+# Rest Metrics Exploratory Data Analysis
 
 ## Portfolio Project No. 1
 
-Purpose: to demonstrate proficient data analyst skills and usage of technical tools required for a role as a data analyst.
+Analyzed long-term sleep trends using SQL for automated data cleaning, Excel for data merging, and Tableau for interactive visualizations; uncovered a strong correlation between Covid-19 shutdowns and shifts in sleep behavior.
 
-Tools: MySQL, Microsoft Excel, Tableau, GitHub
+Tools: MySQL, Microsoft Excel, Tableau, GitHub, VS Code
 
 ### Project Objectives
 
