@@ -2,7 +2,7 @@
 
 ## Portfolio Project No. 1
 
-Analyzed long-term sleep trends using SQL for automated data cleaning, Excel for data merging, and Tableau for interactive visualizations; uncovered a strong correlation between Covid-19 shutdowns and shifts in sleep behavior.
+This exploratory analysis project investigates sleep behavior trends using over six years of data collected from multiple sources. I used SQL to clean and prepare the dataset, Excel to merge accounts, and Tableau to build a dashboard for insights. I found sleep and wake times shifted dramatically during the Covid-19 pandemic, revealing the impact of global events on personal health metrics.
 
 Tools: MySQL, Microsoft Excel, Tableau, GitHub, VS Code
 
